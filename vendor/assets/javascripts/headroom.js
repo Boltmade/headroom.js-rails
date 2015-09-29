@@ -165,6 +165,9 @@
         this.lastKnownScrollY = this.getScrollY();
         this.initialised = true;
         this.scroller.addEventListener('scroll', this.debouncer, false);
+        this.scroller.addEventListener('touchmove', function() {
+          this.update();
+        }.bind(this));
   
         this.debouncer.handleEvent();
       }
